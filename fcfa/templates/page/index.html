@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>ECES-T/R</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="{% static 'dashmob/css/bootstrap.min.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'dashmob/css/style.css' %}" rel='stylesheet' type='text/css' />
+<script src="{% static 'dashmob/js/jquery-1.10.2.min.js' %}"></script>
+</head> 
+<body>
+	<div class="error_page">
+		<div class="error-top">
+
+			<img src="{% static 'dashmob/images/eces_logo.png' %}" alt="logo-eces" width="140" height="100">
+
+			<div class="login">
+				<h3 class="inner-tittle t-inner">Connectez-vous!</h3>
+				<form method="post">
+					{% csrf_token %}
+					<input type="text" class="text" name="username" placeholder="Nom utilisateur" >
+					<input type="password" placeholder="Mot de passe" name="password" >
+					<div class="submit">
+						<input type="submit" value="Connexion">
+					</div>
+					<div class="clearfix">
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>© Copyright <a href="https://wa.me/message/RWNCUXRENLMCE1" target="_blank">ECES</a> 2021. Développé par Dravel-IMBOLO
+		</p>
+	</div>
+	<script src="{% static 'dashmob/js/jquery.nicescroll.js' %}"></script>
+  	<script src="{% static 'dashmob/js/scripts.js' %}"></script>
+	<script src="{% static 'dashmob/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

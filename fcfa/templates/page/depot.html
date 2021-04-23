@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html'%}
+{% block content %}
+{% load widget_tweaks %}
+  {% for mess in messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{mess}}</strong>.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+<div class="container">
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+    <div class="form-group">
+      <label for="bonguo">Montant à Déposer</label>
+      {% render_field formulaire.bonguo class="form-control" placeholder="Montant à déposer" min="0" id="bonguo"%}
+    </div>
+  
+  <div class="form-group">
+    <label for="cbonguo">Confirmation Montant</label>
+    {% render_field formulaire.cbonguo class="form-control" placeholder="Confirmez le montant à déposer" min="0" id="cbonguo" %}
+  </div>
+  <div class="form-group">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">Déposer</button>
+</form>
+</div>
+{% endblock %}

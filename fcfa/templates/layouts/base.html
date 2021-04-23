@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>ECES-T/R</title>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    header {
+      position: fixed;
+      background: #007bff;
+      padding: 20px;
+      width: 100%;
+
+      z-index: 1;
+    }
+
+    .left_area h3 {
+      color: #fff;
+      margin: 0px;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .left_area span {
+      color: #19B3D3;
+    }
+
+    .logout_btn {
+      padding: 5px;
+      background: #19B3D3;
+      text-decoration: none;
+      float: right;
+      margin-top: -30px;
+      margin-right: 40px;
+      border-radius: 2px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      transition: 0.5s;
+
+    }
+
+    .logout_btn:hover {
+      background: #0b79fa;
+    }
+
+    .sidebar {
+      background: #2f323a;
+      margin-top: 4%;
+      padding-top: 30px;
+      position: fixed;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      transition: 0.5s;
+      transition-property: left;
+    }
+    .sidebar_logo{
+      background-color: #fff;
+      border-right:  1px solid #ced4da;
+      height: 190px;
+    }
+
+    .sidebar_logo h4{
+
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 900;
+
+    }
+
+    .sidebar .profile_image {
+      width: 150px;
+      height: 110px;
+      border-radius: 100px;
+      margin-top: 30px;
+    }
+
+    .sidebar h4 {
+      color: #0b79fa;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 60px;
+      text-decoration: none;
+      padding-left: 40px;
+      box-sizing: border-box;
+      transition: 0.5s;
+      text-transform: uppercase;
+      font-weight: 900;
+
+    }
+
+    .sidebar a:hover {
+      background: #0b79fa;
+      width: 100%;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .sidebar i {
+      padding-right: 10px;
+    }
+
+    label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      font-size: 20px;
+      margin: 5px 0;
+      transition: 0.5s;
+      transition-property: color;
+    }
+
+    label #sidebar_btn:hover {
+      color: #19B3D3;
+    }
+
+    #check:checked~.sidebar {
+      left: -190px;
+    }
+
+    #check:checked~.sidebar a span {
+      display: none;
+    }
+
+    #check:checked~.sidebar a {
+      font-size: 20px;
+      margin-left: 170px;
+      width: 80px;
+    }
+
+    .content {
+      margin-left: 250px;
+      /*background: url(background.png) no-repeat;*/
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+      transition: 0.5s;
+    }
+
+    #check:checked~.content {
+      margin-left: 60px;
+    }
+
+    #check {
+      display: none;
+    }
+    footer{
+        bottom: 0px;
+        position: fixed;
+        width: 100%;
+        padding: 0px 0px 0px 0px;
+        background-color: #007bff;
+        margin: 0px;
+    }
+    hr{
+      margin: 0 auto!important;
+    }
+  </style>
+
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"> -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+</head>
+
+<body>
+
+  <input type="checkbox" id="check">
+  <!-- Début entête-->
+  <header>
+    <label for="check">
+      <i class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <h3>Gestion des Transferts/Retraits</h3>
+    </div>
+  </header>
+  <!--Fin entête-->
+  <!--Début Menu-->
+  <div class="sidebar">
+    <div class="sidebar_logo">
+      <center>
+
+        <img src="{% static 'images/eces_logo.png' %}" class="profile_image" alt="eces logo">
+        <h4>ECES</h4>
+
+      </center>
+  </div>
+    <hr>
+    <a href="{% url 'home' %}"><i class="fas fa-chalkboard-teacher"></i><span>Historique</span></a>
+    <hr>
+    <a href="{% url 'depense' %}"><i class="fas fa-user-graduate"></i><span>Dépense</span></a>
+    <hr>
+    <a href="{% url 'depot' %}"><i class="fas fa-user-graduate"></i><span>Dépot</span></a>
+    <hr>
+    <a href="{% url 'retrait' %}"><i class="fas fa-user-graduate"></i><span>Retrait</span></a> 
+    <hr>
+    <a href="{% url 'transfert' %}"><i class="fas fa-user-graduate"></i><span>Transfert</span></a>
+  </div>
+  <!--Fin Menu-->
+
+
+  <!--Début Corps-->
+  
+  <div class="content">
+    <br><br><br><br><br>
+    {% block content %}
+
+    {% endblock content %}
+    {% load static %}
+    </div>
+
+    <!--Fin Corps -->
+
+  <link rel="stylesheet" href="{% static '4.7.0/css/font-awesome.min.css' %}">
+
+  <!-- Début Pied -->
+<footer>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
+          <center><p>&copy; Copyright ECES 2021. Développé en Django par Dravel-IMBOLO</p></center>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Fin Pied -->
+
+<script type="text/javascript" src="{% static 'js/jquery-slim.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+</body>
+
+</html>

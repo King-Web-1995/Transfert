@@ -1,0 +1,56 @@
+{% extends 'layouts/base.html'%}
+{% block content %}
+{% load widget_tweaks %}
+	{% for mess in messages %}
+	  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+	    <strong>{{mess}}</strong>.
+	    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	      <span aria-hidden="true">&times;</span>
+	    </button>
+	  </div>
+  	{% endfor %}
+<div class="container">
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  	<div class="form-group">
+      <label for="benun">Benificiaire</label>
+      	{% render_field formulaire.benun class="form-control" placeholder="Montant à dépenser en lettre" min="0" id="benun"%}
+	</div>
+
+  	<div class="form-row">
+	    <div class="form-group col-md-6">
+	      <label for="partdeux">Montant</label>
+	      {% render_field formulaire.partdeux class="form-control" placeholder="Montant à dépenser" min="0" id="partdeux"%}
+	    </div>
+
+	    <div class="form-group col-md-6">
+	      <label for="cpartdeux">Confirmation</label>
+	      {% render_field formulaire.cpartdeux class="form-control" placeholder="Confirmez le montant à dépenser" min="0" id="cpartdeux"%}
+	    </div>
+  	</div>
+
+  	<div class="form-group">
+      <label for="lettre">Lettre</label>
+      	{% render_field formulaire.lettre class="form-control" placeholder="Montant à dépenser en lettre" min="0" id="lettre"%}
+	</div>
+  
+  	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label for="likambom">Motif</label>
+			{% render_field formulaire.likambom class="form-control" placeholder="Motif de dépense" min="0" id="likambom" %}
+		</div>
+
+		<div class="form-group col-md-6">
+			<label for="lignebuget">Ligne Budgétaire</label>
+			{% render_field formulaire.lignebuget class="form-control" placeholder="Montant que benefissie le deuxième benificiaire" min="0" id="lignebuget" %}
+		</div>
+	</div>
+
+  <div class="form-group">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">Dépenser</button>
+</form>
+</div>
+{% endblock %}
