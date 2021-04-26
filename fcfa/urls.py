@@ -9,4 +9,5 @@ urlpatterns = [
     path('depot', views.depot, name='depot'),
     path('retrait', views.retrait, name='retrait'),
     path('transfert', views.transfert, name='transfert'),
+    path('deconnection', views.deconnection, name='deconnection'),
 ]

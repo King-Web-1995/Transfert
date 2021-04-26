@@ -21,6 +21,11 @@ def index(request):
 	return render(request, 'page/index.html')
 
 
+def deconnection(request):
+	logout(request)
+	return redirect('index')
+
+
 @login_required
 def aide(request):
 	transferts = Transfert.objects.all()
