@@ -22,9 +22,9 @@ def index(request):
 
 
 @login_required
-def liste(request):
+def aide(request):
 	transferts = Transfert.objects.all()
-	return render(request, 'page/liste.html',{'transferts':transferts})
+	return render(request, 'page/aide.html',{'transferts':transferts})
 
 @login_required
 def depense(request):

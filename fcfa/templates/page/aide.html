@@ -1,0 +1,64 @@
+{% extends 'layouts/base.html'%}
+{% block content %}
+	{% for mess in messages %}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+	  <strong>{{mess}}</strong>.
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+	{% endfor %}
+
+	<div class="container" style="margin-top: 5%">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card text-center">
+					  <div class="card-body">
+					    <p class="card-text">Cette application est un système de gestion des <strong>transfert/retait</strong>. Elle ne gère pas seulement les transferts/retrait, elle fait aussi la gestion des <strong>dépenses</strong> et des <strong>dépôts</strong>.</p>
+					  </div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 3%">
+		  	<div class="col-sm-3"> 
+		  		<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+				  	<div class="card-header titre">Transfert</div>
+				  	<div class="card-body">
+				    	<p class="card-text">Cette fonction permet à l'administrateur d'enregistrer l'activités de transfert d'argent qui se fait vers le CACSUP.</p>
+				  	</div>
+				</div>
+		  	</div>
+
+		  	<div class="col-sm-3"> 
+		  		<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+				  	<div class="card-header titre">Depôt</div>
+				  	<div class="card-body">
+				    	<p class="card-text">Cette fonction permet à l'administrateur d'enregistrer l'activités de dépôt d'argent qui se fait en banque.</p>
+				  	</div>
+				</div>
+		  	</div>
+
+		  	<div class="col-sm-3"> 
+		  		<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+				  	<div class="card-header titre">Retrait</div>
+				  	<div class="card-body">
+				    	<p class="card-text">Cette fonction permet à l'administrateur d'enregistrer l'activités de retrait d'argent qui se fait dépuis la banque.</p>
+				  	</div>
+				</div>
+		  	</div>
+
+		  	<div class="col-sm-3"> 
+		  		<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+				  	<div class="card-header titre">Dépense</div>
+				  	<div class="card-body">
+				    	<p class="card-text">Cette fonction permet à l'administrateur d'enregistrer l'activités de dépense d'argent qui se fait dépuis la  caisse.</p>
+				  	</div>
+				</div>
+		  	</div>
+
+		</div>
+
+
+	</div>
+{% endblock %}
